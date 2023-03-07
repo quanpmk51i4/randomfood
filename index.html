@@ -9,24 +9,25 @@
 			color: #333;
 			margin: 0;
 			padding: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
 		}
 
 		.container {
 			max-width: 600px;
-			margin: 0 auto;
 			padding: 20px;
 			background-color: #FFFFFF;
 			box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 			border-radius: 5px;
 			text-align: center;
 			position: relative;
-			top: 50%;
-			transform: translateY(-50%);
 		}
 
 		.btn {
 			display: inline-block;
-			background-color: #007AFF;
+			background-color: #3C7237;
 			color: #FFF;
 			font-weight: bold;
 			font-size: 16px;
@@ -50,7 +51,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Quay Random 20 món ăn phổ biến tại Hà Nội</h1>
+		<h1>Quay Random Xem hôm nay ăn gì</h1>
 		<p>Click nút để xem kết quả sau khi đếm ngược 5 giây</p>
 		<button class="btn" onclick="startTimer()">Quay Random</button>
 		<p id="result"></p>
@@ -62,7 +63,7 @@
 			var timeleft = 5;
 			var downloadTimer = setInterval(function(){
 				var timer = document.getElementById("timer");
-				timer.innerHTML = "Món ăn hiện ra trong " + timeleft;
+				timer.innerHTML = "Đếm ngược: " + timeleft;
 				timeleft -= 1;
 				if (timeleft <= 0){
 					clearInterval(downloadTimer);
@@ -70,13 +71,14 @@
 				}
 			}, 1000);
 		}
-
-		function randomFood() {
+function randomFood() {
 			var foods = ["Cột Điện Quán", "Steak Vinhome gardenia", "Bún bò huế Ngự Uyển", "Gà Mạnh Hoạch", "Bò nầm nướng Nguyễn Ngọc Vũ", "Thịt xiên + cháo/mỳ Duy Tân", "Phở cuốn Hương Mai", "Sủi cảo Anh Béo", "Lẩu bò nhúng dấm", "Bành mì chảo MM food Nguyễn Phong Sắc", "Spaghetti Box", "Cơm gà KFC", "Bánh mì nướng Lạng Sơn", "Bánh cuốn cao bằng", "Vua bún chả", "Mì vịt Jacky", "Tiệm gà óng ánh", "Mỳ gà tần", "Bún riêu cua", "Cơm gà dakgalbi", "Cột Điện Quán", "Steak Vinhome gardenia", "Bún bò huế Ngự Uyển", "Gà Mạnh Hoạch", "Bò nầm nướng Nguyễn Ngọc Vũ", "Thịt xiên + cháo/mỳ Duy Tân", "Phở cuốn Hương Mai", "Sủi cảo Anh Béo", "Lẩu bò nhúng dấm", "Bành mì chảo MM food Nguyễn Phong Sắc", "Spaghetti Box", "Cơm gà KFC", "Bánh mì nướng Lạng Sơn", "Bánh cuốn cao bằng", "Vua bún chả", "Mì vịt Jacky", "Tiệm gà óng ánh", "Mỳ gà tần", "Bún riêu cua", "Cột Điện Quán", "Steak Vinhome gardenia", "Bún bò huế Ngự Uyển", "Gà Mạnh Hoạch", "Bò nầm nướng Nguyễn Ngọc Vũ", "Thịt xiên + cháo/mỳ Duy Tân", "Phở cuốn Hương Mai", "Sủi cảo Anh Béo", "Lẩu bò nhúng dấm", "Bành mì chảo MM food Nguyễn Phong Sắc", "Spaghetti Box", "Cơm gà KFC", "Bánh mì nướng Lạng Sơn", "Bánh cuốn cao bằng", "Vua bún chả", "Mì vịt Jacky", "Tiệm gà óng ánh", "Mỳ gà tần", "Bún riêu cua"].sort(() => Math.random() - 0.5);
 
-			var result = document.getElementById("result");
-			result.innerHTML = foods[0];
-		}
+  var result = document.getElementById("result");
+  var randomIndex = Math.floor(Math.random() * foods.length);
+  var randomFood = foods[randomIndex];
+  result.innerHTML = "Kết quả: " + randomFood;
+}
 	</script>
 </body>
 </html>
